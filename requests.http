@@ -1,0 +1,39 @@
+### Bài 1: Thêm sách kèm ảnh bìa
+# Dùng Postman: Body -> form-data
+# title       Text  Lão Hạc
+# author      Text  Nam Cao
+# stock       Text  50
+# coverImage  File  chọn một file ảnh
+POST http://localhost:8080/api/books
+
+### Bài 2: Cập nhật stock
+PATCH http://localhost:8080/api/books/update/1
+Content-Type: application/json
+
+{
+  "stock": 10
+}
+
+### Bài 3: Tìm sách theo ID
+GET http://localhost:8080/api/books/1
+
+### Bài 3: Kiểm tra lỗi 404
+GET http://localhost:8080/api/books/999
+
+### Bài 4: Tạo phiếu mượn khi bookId tồn tại
+POST http://localhost:8080/api/borrows
+Content-Type: application/json
+
+{
+  "username": "huongcaoha",
+  "bookId": 1
+}
+
+### Bài 4: Kiểm tra custom annotation khi bookId không tồn tại
+POST http://localhost:8080/api/borrows
+Content-Type: application/json
+
+{
+  "username": "huongcaoha",
+  "bookId": 999
+}
